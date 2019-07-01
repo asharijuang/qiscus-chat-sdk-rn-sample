@@ -176,15 +176,6 @@ export default class MessageList extends React.Component {
     }
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    const isMessagesChanged =
-      this.props.messages.length !== prevProps.messages.length;
-    if (this.$flatList != null && this.props.scroll && isMessagesChanged) {
-      toast("scroll!");
-      setTimeout(() => this._scroll(), 1000);
-    }
-  }
-
   get messages() {
     return this._messageListFormatter(this.props.messages);
   }
@@ -209,8 +200,9 @@ export default class MessageList extends React.Component {
 
     return (
       <FlatList
+        inverted
         ref={ref => (this.$flatList = ref)}
-        data={items}
+        data={items.reverse()}
         keyExtractor={it => `key-${it.id}`}
         renderItem={({ item }) => this._renderMessage(item)}
         getItemLayout={(data, index) => {
