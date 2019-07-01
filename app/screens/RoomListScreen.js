@@ -15,6 +15,7 @@ import p from "utils/p";
 
 import RoomItem from "components/RoomItem";
 import Toolbar from "components/Toolbar";
+import NavigationService from "utils/NavigationService.js";
 
 export default class RoomListScreen extends React.Component {
   state = {
@@ -54,9 +55,7 @@ export default class RoomListScreen extends React.Component {
           );
 
           const roomId = notification.data.qiscus_room_id;
-          this.props.navigation.push("Chat", {
-            roomId
-          });
+          NavigationService.navigate('Chat', { roomId });
         }
       });
     Firebase.getInitialNotification().then(async data => {
@@ -71,7 +70,7 @@ export default class RoomListScreen extends React.Component {
       if (lastNotificationId !== notification.notificationId) {
         AsyncStorage.setItem("lastNotificationId", notification.notificationId);
         const roomId = data.notification.data.qiscus_room_id;
-        this.props.navigation.push("Chat", { roomId });
+        NavigationService.navigate('Chat', { roomId });
       }
     });
   }

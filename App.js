@@ -12,6 +12,7 @@ import ChatScreen from "screens/ChatScreen";
 import UserListScreen from "screens/UserListScreen";
 import CreateGroupScreen from "screens/CreateGroupScreen";
 import RoomInfoScreen from "screens/RoomInfo";
+import NavigationService from "utils/NavigationService";
 
 const AppNavigator = createStackNavigator(
   {
@@ -70,7 +71,9 @@ export default class App extends React.Component {
         {Platform.OS === 'ios' && <View style={{height: 20}} />}
         <AppContainer
           style={styles.container}
-          ref={ref => (this.navigation = ref && ref._navigation)}
+          ref={navigatorRef => {
+            NavigationService.setTopLevelNavigator(navigatorRef);
+          }}
         />
       </>
     );
