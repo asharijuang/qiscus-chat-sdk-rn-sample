@@ -31,6 +31,17 @@ $ react-native run-android
 $ react-native run-ios
 ```
 
+## FAQ
+1. How to handle PN in RN?
+what library, how to setup(e.g call register device token, etc), where we put code
+
+2. How to display Notif when app in background? 
+
+3. How to disable Notif when open chat room?   
+
+4. 
+
+
 ## Contribution
 Qiscus Chat SDK Sample UI is fully open-source. All contributions and suggestions are welcome!
 
