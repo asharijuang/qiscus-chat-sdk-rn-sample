@@ -33,7 +33,8 @@ $ react-native run-ios
 
 ## FAQ
 1. How to handle PN in RN?
-what library, how to setup(e.g call register device token, etc), where we put code
+
+What library, how to setup(e.g call register device token, etc), where we put code
 
 2. How to display Notif when app in background? 
 
